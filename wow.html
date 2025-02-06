@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equinox SaaS Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apply Kanit font globally to all text */
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        /* Styling for the logo and text */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 50px; /* Adjust logo size */
+            height: 50px;
+            margin-right: 10px; /* Space between logo and text */
+            border-radius: 60%;
+        }
+
+        .logo-container h1 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Video background styles */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Ensure it's behind the content */
+        }
+
+        /* Overlay styling */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark background with slight opacity */
+            z-index: -1; /* Ensures overlay stays behind the content */
+        }
+
+        /* Section styling for overlay */
+        .overlay-section {
+            position: relative;
+            z-index: 1; /* Ensure content stays on top of the video and overlay */
+        }
+        .first-part {
+            color: white;
+            font-size: 35px;
+        }
+        .second-part {
+            font-size: 35px;
+            font-weight: bold;
+            color: #2F0147;
+            text-shadow: 
+                -0.5px -0.5px 0 white,
+                 0.5px -0.5px 0 white,
+                -0.5px  0.5px 0 white,
+                 0.5px  0.5px 0 white;
+        }
+
+        .bg-gradient{
+            background: linear-gradient(to bottom, 
+        rgb(8, 8, 30, 0) 20%,   
+        rgb(122, 40, 203) 80%,  
+        rgb(8, 8, 30) 95%
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+    }
+    .bg-gradient-omg {
+        background: linear-gradient(to bottom, 
+            rgb(8, 8, 30) 10%, /* Dark color starts at the top */
+            rgb(122, 40, 203) 60%, /* Gradual transition to purple */
+            rgb(8, 8, 30, 0) 100% /* Gradually fades into transparent dark color */
+        );
+        height: 40vh;
+    }
+
+    /* Style for the button */
+#openPopupBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Style for the pop-up */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pop-up content style */
+.popup-content {
+        background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+        padding: 40px;
+        border-radius: 10px;
+        text-align: center;
+        width: 400px; /* Increase the size */
+        height: 300px;
+        backdrop-filter: blur(10px); /* Apply the blur effect */
+        -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for better visibility */
+    }
+
+/* Close button style */
+
+
+    </style>
+</head>
+<body class="bg-white text-[#9ba2ff]">
+    <header class="flex justify-between items-center p-6">
+        <script src="script.js"></script>
+        <div class="logo-container">
+            <img src="21.png" alt="Logo">
+            <h1><span class="first-part">Code</span><span class="second-part">Sage</span></h1>
+        </div>
+        <div class="flex space-x-6">
+            <!-- About button styled like Contact Us -->
+            <a href="#about" class="bg-white text-black px-4 py-2 rounded-lg hover:bg-[#9ba2ff]">About</a>
+            <button id="openPopupBtn" class="bg-white text-black px-4 py-2 rounded-lg hover:bg-[#9ba2ff]">Contact Us</button>
+        </div>
+    </header>
+
+    <!-- Video Background -->
+    <video class="video-background" autoplay loop muted>
+        <source src="7101913-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <section class="overlay-section text-center py-20">
+        <h2 class="text-5xl font-bold" style="color: white;">Transform Your <span class="text-[#7A28CB]">Business</span> <br> With Our <i><span class="text-[#7A28CB]">SaaS</span> Solution</i></h2>
+        <p class="mt-4 text-white" style="font-size: 16px;">Streamline operations, boost productivity, and enhance customer satisfaction with our cutting-edge SaaS platform.</p>
+        <div class="mt-6 flex justify-center space-x-4">
+            <button class="bg-white text-black px-6 py-3 rounded-lg hover:bg-[#9ba2ff]">Get Started</button>
+        </div>
+    </section>
+    <section class="overlay-section text-center py-20 bg-gradient-to-b from-[#9ba2ff]100% via-[#2F0147]100% to-black">
+        <h3 class="text-3xl font-semibold" style="color: white;">Unlock the <span class="text-white">Full potential</span> of <i>Your Business</i></h3>
+        <div class="flex justify-center mt-8 space-x-8">
+            <div class="bg-gray-800 p-6 rounded-lg w-1/4 relative">
+                <div class="absolute inset-0 bg-[#9ba2ff] opacity-50 rounded-lg"></div> <!-- Overlay with opacity-50 -->
+                <h4 class="text-xl font-bold text-white z-10 relative">Seamless Integration</h4> <!-- z-index to ensure text is on top -->
+                <p class="text-white mt-2 z-10 relative">Easily integrate with your existing systems, ensuring a smooth transition.</p> <!-- z-index added here too -->
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg w-1/4 relative">
+                <div class="absolute inset-0 bg-[#9ba2ff] opacity-50 rounded-lg"></div> <!-- Overlay with opacity-50 -->
+                <h4 class="text-xl font-bold text-white z-10 relative">Enhanced Productivity</h4> <!-- z-index to ensure text is on top -->
+                <p class="text-white mt-2 z-10 relative">Automate tasks and streamline processes to free up time for growth.</p> <!-- z-index added here too -->
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg w-1/4 relative">
+                <div class="absolute inset-0 bg-[#9ba2ff] opacity-50 rounded-lg"></div> <!-- Overlay with opacity-50 -->
+                <h4 class="text-xl font-bold text-white z-10 relative">Superior Support</h4> <!-- z-index to ensure text is on top -->
+                <p class="text-white mt-2 z-10 relative">24/7 support team to ensure your operations run smoothly.</p> <!-- z-index added here too -->
+            </div>        
+        </div>
+    
+       <br>
+       <br>
+       <br>
+       <section  class="text-center py-20 relative bg-gradient">
+        <div class="relative z-10"> <!-- Content above the box -->
+            <h2 class="text-5xl font-bold" style="color: #2f0147;">WE ARE <span class="text-[#7A28CB]">CREATIVE</span> IT COMPANY</h2>
+            <p class="mt-4 text-black" style="font-size: 18px;">Learn more about our brand, innovative strategies, and visual creativity.</p>
+            <br>
+   
+        </div>
+    </section>
+            
+    <section  class="py-20 bg-gray-900" style="background-color: rgb(8, 8, 30);">
+        <h3 id="about" class="text-3xl font-semibold text-[#7A28CB]" style="font-size: 40px;">What We Do?...</h3>
+        
+        <div class="flex justify-center mt-12 space-x-8">
+            
+            <!-- Card 1 -->
+            <div class="flex flex-col items-center w-1/4">
+                <div class="bg-gray-800 p-8 rounded-lg w-full text-center">
+                    <h4 class="text-xl font-bold text-white">Software Development</h4>
+                    <p class="text-gray-400 mt-2">Creating unique software for your company.</p>
+                </div>
+                <img src="dev.jpg" alt="Brand Identity" class="w-full h-32 object-cover rounded-lg mt-4" style="height: 400px;"/>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="flex flex-col items-center w-1/4">
+                <img src="google.jpg" alt="Website Design" class="w-full h-32 object-cover rounded-lg mb-4" style="height: 400px;"/>
+                <div class="bg-gray-800 p-8 rounded-lg w-full text-center">
+                    <h4 class="text-xl font-bold text-white">SEO</h4>
+                    <p class="text-gray-400 mt-2">Bring your business to full potential.</p>
+                </div>
+                
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="flex flex-col items-center w-1/4">
+                <div class="bg-gray-800 p-8 rounded-lg w-full text-center">
+                    <h4 class="text-xl font-bold text-white">UI & UX Design</h4>
+                    <p class="text-gray-400 mt-2">Crafting intuitive user experiences.</p>
+                </div>
+                <img src="pro.png" alt="UI & UX Design" class="w-full h-32 object-cover rounded-lg mt-4" style="height: 400px;" />
+            </div>
+    
+            <!-- Card 4 -->
+            
+    
+        </div>
+    </section>
+    
+    <section class="text-center py-20 relative bg-gradient-omg">
+        <h3 class="text-3xl font-semibold" style="color: white;">We Use <span class="text-[#9ba2ff]">Creativity</span> to Get Our Clients.</h3>
+        <p class="mt-4 text-gray-400" style="color: white;">Delivering clean code and modern design solutions</p>
+        <div class="mt-8 flex justify-center space-x-12">
+            <div class="text-center">
+                <p class="text-[#2f0147]">Projects Done</p>
+                <h4 class="text-3xl font-bold text-[#2f0147]">150+</h4>
+            </div>
+            <div class="text-center">
+                <p class="text-[#2f0147]">Happy Customers</p>
+                <h4 class="text-3xl font-bold text-[#2f0147]">75+</h4>
+            </div>
+            <div class="text-center">
+                <p class="text-[#2f0147]">Awards Won</p>
+                <h4 class="text-3xl font-bold text-[#2f0147]">20+</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pop-up Window -->
+   <!-- Pop-up content -->
+<div id="popup" class="popup">
+    <div class="popup-content relative">
+        <span id="close-btn" onclick="closePopup()"></span>
+        <h2 class="text-white text-2xl font-bold mb-4">Contact Us</h2>
+        
+        <!-- Email Button -->
+        <a href="mailto:contact@codesage.com" class="block bg-white text-black px-4 py-2 rounded-lg hover:bg-[#9ba2ff] mb-4">
+            contact@codesage.com
+        </a>
+
+        <!-- Phone Button -->
+        <a href="tel:+1234567890" class="block bg-white text-black px-4 py-2 rounded-lg hover:bg-[#9ba2ff]">
+            +1 234 567 890
+        </a>
+
+        <!-- Logo -->
+        <div class="mt-6 flex justify-center">
+            <img src="21.png" alt="CodeSage Logo" class="w-16 h-16 rounded-full">
+        </div>
+    </div>
+</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const openPopupBtn = document.getElementById("openPopupBtn");
+    const popup = document.getElementById("popup");
+    const closeBtn = document.getElementById("close-btn");
+
+    openPopupBtn.addEventListener("click", function () {
+        popup.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+
+    // Close popup when clicking outside of content
+    popup.addEventListener("click", function (event) {
+        if (event.target === popup) {
+            popup.style.display = "none";
+        }
+    });
+});
+    </script>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
